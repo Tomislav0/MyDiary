@@ -1,0 +1,68 @@
+<resources>
+    <string name="app_name">My Diary</string>
+    <string name="forgot_password"><u>Forgot password?</u></string>
+    <string name="Register"><u>Register</u></string>
+    <string name="registration">Registration</string>
+    <string name="login">Login</string>
+    <string name="underlineLogin"><u>Login</u></string>
+    <string name="password">Password</string>
+    <string name="username">Username</string>
+    <string name="welcome_text">Welcome! Please login to continue.</string>
+    <string name="name">Name</string>
+    <string name="surname">Surname</string>
+    <string name="email">Email</string>
+    <string name="birth_date">Birth Date</string>
+    <string name="gender">Gender</string>
+
+
+    <string-array name="genders">
+        <item>Male</item>
+        <item>Female</item>
+        <item>Other</item>
+    </string-array>
+    <string-array name="moodRate">
+        <item>Select mood</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+    </string-array>
+
+    <string name="title_activity_test">test</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="genderAndBirthDate">Gender and birth date:</string>
+    <string name="repeatPassword">Repeat password</string>
+    <string name="guidTextForgotPassword">Please enter your email.</string>
+    <string name="resetPassword">Reset password</string>
+
+    <string name="isRequired"> field is required.</string>
+    <string name="logout">Logout</string>
+    <string name="newNote">New note</string>
+    <string name="save">Save</string>
+    <string name="enter_your_thoughts">Please enter your thoughts.</string>
+    <string name="title">Title</string>
+    <string name="home">Home</string>
+    <string name="statistics">Statistics</string>
+    <string name="account">Account</string>
+    <string name="other">Other</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="search">Search</string>
+    <string name="delete">Delete</string>
+    <string name="deleteImage">Do you want to delete image?</string>
+    <string name="deleteVoiceMessage">Do you want to delete voice message?</string>
+
+</resources>

@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragments.DiaryFragment">
+
+
+    <TextView
+        android:id="@+id/titleDiaryTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:animateLayoutChanges="true"
+        android:fontFamily="@font/lato_light"
+        android:text="@string/app_name"
+        android:textSize="55sp"
+        app:layout_constraintBottom_toTopOf="@+id/spacerView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/spacerView"
+        android:layout_width="1dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="25dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleDiaryTV"></View>
+
+
+    <ImageButton
+        android:id="@+id/searchDiaryImgBtn"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="?android:selectableItemBackground"
+        android:src="@drawable/ic_search"
+        app:layout_constraintBottom_toBottomOf="@+id/spacerView"
+        app:layout_constraintEnd_toStartOf="@+id/searchDiaryET"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toEndOf="@+id/spacerView"
+        app:layout_constraintTop_toTopOf="@+id/spacerView"
+        app:layout_goneMarginTop="40dp" />
+
+
+    <EditText
+        android:id="@+id/searchDiaryET"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:width="100dp"
+        android:background="@drawable/custom_input"
+        android:fontFamily="@font/lato_light"
+        android:hint="@string/search"
+        android:inputType="textPersonName"
+        android:paddingStart="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/spacerView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/cancelSelectionBtn"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/searchDiaryImgBtn"
+        app:layout_constraintTop_toTopOf="@+id/spacerView" />
+    <FrameLayout
+
+        android:id="@+id/deleteSelectionFL"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/spacerView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/selectAllCB"
+        app:layout_constraintTop_toTopOf="@+id/spacerView"
+        app:layout_goneMarginTop="40dp">
+        <ImageButton
+            android:id="@+id/deleteSelectionBtn"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="20dp"
+
+            android:background="?android:selectableItemBackground"
+            android:src="@drawable/ic_baseline_delete_24"
+            />
+        <TextView
+            android:id="@+id/selectedCounterTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1"
+            android:layout_gravity="top|end"/>
+    </FrameLayout>
+    <ImageButton
+        android:id="@+id/cancelSelectionBtn"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="?android:selectableItemBackground"
+        android:src="@drawable/ic_baseline_close_24"
+
+        app:layout_constraintBottom_toBottomOf="@+id/spacerView"
+        app:layout_constraintEnd_toStartOf="@+id/selectAllCB"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/searchDiaryET"
+        app:layout_constraintTop_toTopOf="@+id/spacerView"
+        app:layout_goneMarginTop="40dp" />
+
+
+    <androidx.appcompat.widget.AppCompatCheckBox
+        android:id="@+id/selectAllCB"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/spacerView"
+        app:layout_constraintEnd_toStartOf="@+id/deleteSelectionFL"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/cancelSelectionBtn"
+        app:layout_constraintTop_toTopOf="@+id/spacerView"></androidx.appcompat.widget.AppCompatCheckBox>
+
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/diaryRV"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spacerView"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/addNoteBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="50dp"
+        android:background="@drawable/button_border"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_baseline_add_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"></com.google.android.material.floatingactionbutton.FloatingActionButton>
+
+    <androidx.core.widget.ContentLoadingProgressBar
+        android:id="@+id/progressDiaryPB"
+        style="@style/Widget.AppCompat.ProgressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/selectionGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        app:constraint_referenced_ids="deleteSelectionFL,cancelSelectionBtn,selectAllCB" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

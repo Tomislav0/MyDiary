@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activities.RegistrationActivity">
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/titleRegistrationTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:fontFamily="@font/lato_light"
+        android:text="@string/registration"
+        android:textSize="50sp"
+        app:layout_constraintBottom_toTopOf="@+id/nameRegistrationET"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <EditText
+        android:id="@+id/nameRegistrationET"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginHorizontal="60dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/custom_input"
+        android:fontFamily="@font/lato_light"
+        android:hint="@string/name"
+        android:inputType="textPersonName"
+        android:paddingStart="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/emailRegistrationET"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleRegistrationTV" />
+
+    <EditText
+        android:id="@+id/emailRegistrationET"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginHorizontal="60dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/custom_input"
+        android:fontFamily="@font/lato_light"
+        android:hint="@string/email"
+        android:inputType="textPersonName"
+        android:paddingStart="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/genderAndBirthTV"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nameRegistrationET" />
+
+    <TextView
+        android:id="@+id/genderAndBirthTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="60dp"
+        android:layout_marginBottom="10dp"
+        android:fontFamily="@font/lato"
+        android:text="@string/genderAndBirthDate"
+        app:layout_constraintBottom_toTopOf="@+id/genderSpinner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emailRegistrationET" />
+
+    <Spinner
+        android:id="@+id/genderSpinner"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/custom_dropdown"
+        android:layout_marginLeft="60dp"
+        android:inputType="textPersonName"
+        android:paddingStart="15dp"
+        android:spinnerMode="dropdown"
+        app:layout_constraintBottom_toTopOf="@+id/firstPasswordRegstrationET"
+        app:layout_constraintEnd_toStartOf="@+id/dateTV"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/genderAndBirthTV" />
+
+    <TextView
+        android:id="@+id/dateTV"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:drawableStart="@drawable/ic_calendar"
+        android:layout_marginRight="60dp"
+        android:paddingEnd="5dp"
+        android:paddingStart="5dp"
+        android:background="@drawable/custom_input"
+        android:drawablePadding="5dp"
+        android:gravity="center"
+        android:hint="DD/MM/YEAR"
+        android:inputType="date"
+        app:layout_constraintBottom_toBottomOf="@+id/genderSpinner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/genderSpinner"
+        app:layout_constraintTop_toTopOf="@+id/genderSpinner" />
+
+    <EditText
+        android:id="@+id/firstPasswordRegstrationET"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginHorizontal="60dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/custom_input"
+        android:fontFamily="@font/lato_light"
+        android:hint="@string/password"
+        android:inputType="textPassword"
+        android:paddingStart="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/repeatPasswordRegstrationET"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/genderSpinner" />
+
+    <EditText
+        android:id="@+id/repeatPasswordRegstrationET"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginHorizontal="60dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/custom_input"
+        android:fontFamily="@font/lato_light"
+        android:hint="@string/repeatPassword"
+        android:inputType="textPassword"
+        android:paddingStart="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/submitRegisterBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/firstPasswordRegstrationET" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/submitRegisterBtn"
+       android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginHorizontal="60dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/custom_background"
+        android:textAllCaps="false"
+        android:fontFamily="@font/lato"
+        android:text="Register"
+        app:layout_constraintBottom_toTopOf="@+id/loginRegistrationTV"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/repeatPasswordRegstrationET" />
+
+    <TextView
+        android:id="@+id/loginRegistrationTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/lato"
+        android:gravity="right"
+        android:text="@string/underlineLogin"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.84"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/submitRegisterBtn" />
+
+    <androidx.core.widget.ContentLoadingProgressBar
+        android:id="@+id/progressRegisterPB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        style="@style/Widget.AppCompat.ProgressBar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
