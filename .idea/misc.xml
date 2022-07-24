@@ -34,7 +34,7 @@
         <entry key="..\:/Users/tomis/AndroidStudioProjects/MyDiary/app/src/main/res/layout/activity_home.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/tomis/AndroidStudioProjects/MyDiary/app/src/main/res/layout/activity_login.xml" value="0.4" />
         <entry key="..\:/Users/tomis/AndroidStudioProjects/MyDiary/app/src/main/res/layout/activity_main.xml" value="0.536" />
-        <entry key="..\:/Users/tomis/AndroidStudioProjects/MyDiary/app/src/main/res/layout/activity_note_upsert.xml" value="0.176" />
+        <entry key="..\:/Users/tomis/AndroidStudioProjects/MyDiary/app/src/main/res/layout/activity_note_upsert.xml" value="0.6" />
         <entry key="..\:/Users/tomis/AndroidStudioProjects/MyDiary/app/src/main/res/layout/activity_register.xml" value="0.4" />
         <entry key="..\:/Users/tomis/AndroidStudioProjects/MyDiary/app/src/main/res/layout/card_note.xml" value="0.14479166666666668" />
         <entry key="..\:/Users/tomis/AndroidStudioProjects/MyDiary/app/src/main/res/layout/dialog_delete_template.xml" value="0.4" />
@@ -45,8 +45,8 @@
         <entry key="..\:/Users/tomis/AndroidStudioProjects/MyDiary/app/src/main/res/layout/fragment_other.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/tomis/AndroidStudioProjects/MyDiary/app/src/main/res/layout/fragment_second.xml" value="0.4" />
         <entry key="..\:/Users/tomis/AndroidStudioProjects/MyDiary/app/src/main/res/layout/fragment_statistic.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/tomis/AndroidStudioProjects/MyDiary/app/src/main/res/layout/fragment_statistics.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/tomis/AndroidStudioProjects/MyDiary/app/src/main/res/layout/item_note.xml" value="0.264" />
+        <entry key="..\:/Users/tomis/AndroidStudioProjects/MyDiary/app/src/main/res/layout/fragment_statistics.xml" value="0.264" />
+        <entry key="..\:/Users/tomis/AndroidStudioProjects/MyDiary/app/src/main/res/layout/item_note.xml" value="0.4" />
         <entry key="..\:/Users/tomis/AndroidStudioProjects/MyDiary/app/src/main/res/layout/note_upsert_image_layout.xml" value="0.19635416666666666" />
         <entry key="..\:/Users/tomis/AndroidStudioProjects/MyDiary/app/src/main/res/layout/register_activity.xml" value="0.4" />
         <entry key="..\:/Users/tomis/AndroidStudioProjects/MyDiary/app/src/main/res/menu/bottom_nav_menu.xml" value="0.20416666666666666" />

@@ -1,5 +1,7 @@
 package com.example.mydiary.constants;
 
+import static com.github.mikephil.charting.utils.ColorTemplate.rgb;
+
 public final class Constants {
     public static final String isRequiredErrorMessage = " field is required.";
     public static final String isInvalidErrorMessage = " field is invalid.";
@@ -21,4 +23,9 @@ public final class Constants {
     public static final Integer IMAGE_PICK_CODE = 1000;
     public static final Integer PERMISSION_CODE = 1001;
     public static final Integer MICROPHONE_PERMISSION_CODE = 200;
+    public static final int[] ChartMaterials = {
+            rgb("#fc0303"), rgb("#ff4f03"), rgb("#ff7903"), rgb("#ffb803"),
+            rgb("#ffea03"), rgb("#eaff03"), rgb("#bcff03"), rgb("#14ff03"),
+            rgb("#03ff3e"), rgb("#03ff74")
+    };
 }

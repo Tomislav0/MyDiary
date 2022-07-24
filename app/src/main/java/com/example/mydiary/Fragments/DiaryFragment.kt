@@ -5,6 +5,8 @@ import android.content.Context
 import android.content.ContextWrapper
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.graphics.drawable.Icon
 import android.media.Image
 import android.os.Build
@@ -38,6 +40,7 @@ import com.google.gson.Gson
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_diary.*
 import kotlinx.coroutines.selects.select
+import java.io.File
 import java.security.acl.Group
 import java.text.SimpleDateFormat
 import java.util.*
@@ -73,6 +76,7 @@ class DiaryFragment : Fragment(R.layout.fragment_diary), View.OnClickListener, N
     private var isSearchClicked by Delegates.notNull<Boolean>()
     lateinit var selectedNotes : MutableList<NoteDto>
     lateinit var disabledDays : ArrayList<String>
+    lateinit var allDays : ArrayList<String>
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -110,8 +114,9 @@ class DiaryFragment : Fragment(R.layout.fragment_diary), View.OnClickListener, N
             searchBtn.setImageResource(R.drawable.ic_search)
             }
         }
-
+        allDays = arrayListOf()
         fetchNotes()
+
         notesToSearch = fetchedNotes
 
         selectedNotes = mutableListOf()
@@ -203,13 +208,12 @@ class DiaryFragment : Fragment(R.layout.fragment_diary), View.OnClickListener, N
                     }
 
                 }
+                    fetchNotes()
             }
 
             }
         }
     }
-
-
 
     private fun fetchNotes(){
         this.fetchedNotes = mutableListOf()
@@ -222,9 +226,10 @@ class DiaryFragment : Fragment(R.layout.fragment_diary), View.OnClickListener, N
                     val note = gson.fromJson(toJson, NoteBM::class.java)
                     val parsedDate = dateHelper.convertToDateFormat(note.date)
                     this.fetchedNotes.add(NoteDto(note.id,parsedDate,note.title,note.content,note.hasImage, note.hasVoiceRecording, note.moodRate))
-
+                    allDays.add(dateHelper.getDateChartFormat(parsedDate))
                     disabledDays.add(note.date)
                 }
+
                 this.fetchedNotes.sortByDescending { it.date }
                 notesRV.adapter!!.notifyDataSetChanged()
 
@@ -234,17 +239,30 @@ class DiaryFragment : Fragment(R.layout.fragment_diary), View.OnClickListener, N
                 progressBar.visibility = View.GONE
             }
         }
+
+
     }
 
     private fun navigateToNewNoteActivity() {
         var intent = Intent(activity, NoteUpsertActivity::class.java)
         intent.putStringArrayListExtra("disabledDays",disabledDays)
+        var day = Calendar.getInstance()
+        day.time = Date()
+        var freeDay = dateHelper.getDateChartFormat(day.time)
+        while(allDays.contains(freeDay)){
+            Log.i("uso","stvaro")
+            day.set(Calendar.DAY_OF_MONTH,day.get(Calendar.DAY_OF_MONTH)-1)
+            freeDay = dateHelper.getDateChartFormat(day.time)
+        }
+        intent.putExtra("freeDay",freeDay)
         startActivity(intent)
     }
 
     override fun onItemClick(position: Int) {
         val intent = Intent(activity, NoteUpsertActivity::class.java)
-        intent.putExtra("upsertNote",fetchedNotes[position])
+        val note = fetchedNotes[position]
+        var noteToSend = NoteDto(note.id,note.date,note.title,note.content,note.hasImage,note.hasVoiceRecording,note.moodRate)
+        intent.putExtra("upsertNote",noteToSend)
         intent.putStringArrayListExtra("disabledDays",disabledDays)
         startActivity(intent)
 

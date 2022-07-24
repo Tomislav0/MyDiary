@@ -33,12 +33,21 @@ class DateHelper @Inject constructor() {
     }
 
     fun getDateMonth(date:Date): Int {
-        val sdfDay = SimpleDateFormat("MM")
-        return sdfDay.format(date).toInt()
+        val sdfMonth = SimpleDateFormat("MM")
+        return sdfMonth.format(date).toInt()
     }
 
     fun getDateYear(date:Date): Int {
-        val sdfDay = SimpleDateFormat("yyyy")
-        return sdfDay.format(date).toInt()
+        val sdfYear = SimpleDateFormat("yyyy")
+        return sdfYear.format(date).toInt()
+    }
+
+    fun getDateChartFormat(date:Date): String {
+        val sdf = SimpleDateFormat("dd.MM.yyyy.")
+        return sdf.format(date).toString()
+    }
+    fun getDateChartFormat(date:String): Date {
+        val sdf = SimpleDateFormat("dd.MM.yyyy.")
+        return sdf.parse(date)
     }
 }

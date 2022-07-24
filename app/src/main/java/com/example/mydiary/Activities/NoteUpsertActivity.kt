@@ -62,6 +62,8 @@ class NoteUpsertActivity : AppCompatActivity(), View.OnClickListener, View.OnLon
     lateinit var imageUri: Uri
     lateinit var voiceRecordBtn : ImageButton
     lateinit var playBtn : ImageButton
+    lateinit var moodRateTV : TextView
+    lateinit var parsedFreeDay : Date
 
     lateinit var mediaRecorder : MediaRecorder
     lateinit var mediaPlayer : MediaPlayer
@@ -102,6 +104,7 @@ class NoteUpsertActivity : AppCompatActivity(), View.OnClickListener, View.OnLon
         imageBigIV = findViewById(R.id.imageBigIV)
         voiceRecordBtn = findViewById(R.id.voiceMessageBtn)
         playBtn = findViewById(R.id.playBtn)
+        moodRateTV = findViewById(R.id.moodRateTV)
 
         imageUri = Uri.EMPTY
         hasImage = false
@@ -280,7 +283,7 @@ class NoteUpsertActivity : AppCompatActivity(), View.OnClickListener, View.OnLon
         val deleteDialogBtn :Button = voiceMessageDialog.findViewById(R.id.deleteBtnDialog)
         val cancelDialogBtn :Button = voiceMessageDialog.findViewById(R.id.cancelBtnDialog)
 
-        messageTVDialog.text = R.string.deleteVoiceMessage.toString()
+        messageTVDialog.text = "Do you want to delete voice recording?"
 
         deleteDialogBtn.setOnClickListener{
             hasVoiceRecording=false
@@ -304,7 +307,7 @@ class NoteUpsertActivity : AppCompatActivity(), View.OnClickListener, View.OnLon
         val deleteDialogBtn :Button = imageDialog.findViewById(R.id.deleteBtnDialog)
         val cancelDialogBtn :Button = imageDialog.findViewById(R.id.cancelBtnDialog)
 
-        messageTVDialog.text = R.string.deleteImage.toString()
+        messageTVDialog.text = "Do you want to delete image?"
 
         deleteDialogBtn.setOnClickListener{
             hasImage=false
@@ -326,6 +329,8 @@ class NoteUpsertActivity : AppCompatActivity(), View.OnClickListener, View.OnLon
     private fun setInitialData() {
         if (isUpsert) {
             dateId = upsertNote.id
+            moodRateTV.visibility = View.VISIBLE
+            moodRateTV.text = upsertNote.moodRate.toString()
             if(upsertNote.hasImage) {
 
                 val imgFile = File(getExternalFilesDir(Environment.DIRECTORY_PICTURES),upsertNote.id+".jpg")
@@ -350,10 +355,12 @@ class NoteUpsertActivity : AppCompatActivity(), View.OnClickListener, View.OnLon
             calendar.set(year,month,day)
             moodRate=upsertNote.moodRate
         } else {
+            moodRateTV.visibility = View.INVISIBLE
             hasVoiceRecording = false;
             hasImage=false
             playBtn.visibility=View.GONE
             dateId = Date().time.toString()
+            calendar.set(dateHelper.getDateYear(parsedFreeDay),dateHelper.getDateMonth(parsedFreeDay)-1,dateHelper.getDateDay(parsedFreeDay))
             year = calendar.get(Calendar.YEAR)
             month = calendar.get(Calendar.MONTH)
             day = calendar.get(Calendar.DAY_OF_MONTH)
@@ -368,6 +375,12 @@ class NoteUpsertActivity : AppCompatActivity(), View.OnClickListener, View.OnLon
     private fun fetchDataFromIntent() {
         val data = intent.getParcelableExtra<NoteDto>("upsertNote")
         val disabledDaysString : ArrayList<String>? = intent.getStringArrayListExtra("disabledDays")
+        val freeDay : String? = intent.getStringExtra("freeDay")
+        if(freeDay != null){
+        parsedFreeDay = dateHelper.getDateChartFormat(freeDay!!)}
+        else{
+            parsedFreeDay = Date() //value of this init is not important
+        }
         if(disabledDaysString!=null){
         Log.i("jel je", disabledDaysString.toString())}
 
@@ -402,7 +415,10 @@ class NoteUpsertActivity : AppCompatActivity(), View.OnClickListener, View.OnLon
         var date = dateHelper.convertToStringFormat(calendar.time)
         val title =  titleET.text.toString()
         val content = contentET.text.toString()
-
+        if(calendar.time > Date()){
+            Toast.makeText(this,"Selected date is in future.",Toast.LENGTH_SHORT).show()
+            return
+        }
         if(title.isEmpty()&& content.isEmpty()){
             titleET.requestFocus()
             contentET.requestFocus()

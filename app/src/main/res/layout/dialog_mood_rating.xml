@@ -5,22 +5,22 @@
     android:layout_width="wrap_content"
     android:layout_height="180dp"
     android:layout_gravity="top"
-    android:paddingHorizontal="60dp"
     android:layout_marginBottom="10dp"
-    android:elevation="4dp">
+    android:elevation="4dp"
+    android:paddingHorizontal="60dp">
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/titleTVDialog"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:fontFamily="@font/lato"
+        android:gravity="center"
         android:text="Please rate your mood through day."
         android:textAlignment="center"
-        android:gravity="center"
-    android:fontFamily="@font/lato"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:textColor="@color/black"
         app:layout_constraintTop_toTopOf="parent"></androidx.appcompat.widget.AppCompatTextView>
 
     <Spinner
@@ -29,9 +29,9 @@
         android:layout_height="40dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/custom_dropdown"
+        android:fontFamily="@font/lato"
         android:inputType="textPersonName"
         android:paddingStart="15dp"
-        android:fontFamily="@font/lato"
         android:spinnerMode="dropdown"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_chainStyle="spread_inside"
@@ -42,20 +42,21 @@
         android:id="@+id/cancelNoteBtnDialog"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-    android:fontFamily="@font/lato"
+        android:fontFamily="@font/lato"
         android:text="@string/mdtp_cancel"
         android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/saveNoteBtnDialog"
         app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
         app:layout_constraintStart_toStartOf="parent"></androidx.appcompat.widget.AppCompatButton>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/saveNoteBtnDialog"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/save"
         android:fontFamily="@font/lato"
+        android:text="@string/save"
         android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

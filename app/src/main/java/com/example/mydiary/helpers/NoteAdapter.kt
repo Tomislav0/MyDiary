@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.view.drawToBitmap
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mydiary.R
 import com.example.mydiary.models.NoteDto
@@ -108,6 +109,7 @@ class NoteAdapter(
         holder.content.text = content
         holder.voiceRecordingIV.visibility = if(notes[position].hasVoiceRecording) View.VISIBLE else View.GONE
 
+
         if (notes[position].hasImage) {
             val imgFile = File(context.getExternalFilesDir(Environment.DIRECTORY_PICTURES), notes[position].id +".jpg")
             if (imgFile.exists()) {
@@ -120,6 +122,7 @@ class NoteAdapter(
             holder.noteImg.visibility = View.GONE
             holder.noteImg.setImageBitmap(null)
         }
+
 
 
     }

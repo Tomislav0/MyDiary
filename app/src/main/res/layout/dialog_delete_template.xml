@@ -14,31 +14,32 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:hint="Please rate your mood through day."
+        android:gravity="center"
+        android:text="Please rate your mood through day."
+        android:textAlignment="center"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:textColor="@color/black"
         app:layout_constraintTop_toTopOf="parent"></androidx.appcompat.widget.AppCompatTextView>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/cancelBtnDialog"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:background="?android:selectableItemBackground"
+        android:fontFamily="@font/lato"
         android:text="@string/mdtp_cancel"
         android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/deleteBtnDialog"
         app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
         app:layout_constraintStart_toStartOf="parent"></androidx.appcompat.widget.AppCompatButton>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/deleteBtnDialog"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:background="?android:selectableItemBackground"
+        android:fontFamily="@font/lato"
         android:text="@string/delete"
         android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
