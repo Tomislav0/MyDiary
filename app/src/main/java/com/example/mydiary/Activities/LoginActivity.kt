@@ -39,7 +39,6 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
 
         Auth = Firebase.auth
 
-        Log.i("User_login",Auth.currentUser.toString())
         registerTV.setOnClickListener(this)
         forgotPasswordTV.setOnClickListener(this)
         loginBtn.setOnClickListener(this)
@@ -82,14 +81,10 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         Auth.signInWithEmailAndPassword(email,password).addOnCompleteListener{
             if(it.isSuccessful){
                 var user = Auth.currentUser
-                Log.i("email",user!!.email.toString())
                 if(user!!.isEmailVerified){
                     Toast.makeText(this,"Successfully authenticated!",Toast.LENGTH_LONG).show()
                     val intent = Intent(this, HomeActivity::class.java)
                     intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
-                    val sharedPreferences: SharedPreferences = this.getSharedPreferences(
-                        Constants.currUserStorageKey,
-                        Context.MODE_PRIVATE)
                     val prefs = getSharedPreferences(
                         Constants.sharedPreferencesStorageKey,
                         MODE_PRIVATE

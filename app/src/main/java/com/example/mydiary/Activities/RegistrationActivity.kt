@@ -72,8 +72,6 @@ class RegistrationActivity : AppCompatActivity(), View.OnClickListener{
             spinner.adapter = adapter
         }
 
-
-        // Get/set data form DatePicker
         dateTV.setOnClickListener(this)
         loginTV.setOnClickListener(this)
         registerBtn.setOnClickListener(this)

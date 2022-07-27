@@ -381,8 +381,6 @@ class NoteUpsertActivity : AppCompatActivity(), View.OnClickListener, View.OnLon
         else{
             parsedFreeDay = Date() //value of this init is not important
         }
-        if(disabledDaysString!=null){
-        Log.i("jel je", disabledDaysString.toString())}
 
         disabledDays = arrayListOf()
         disabledDaysString?.forEach { it->
@@ -401,7 +399,6 @@ class NoteUpsertActivity : AppCompatActivity(), View.OnClickListener, View.OnLon
             isUpsert = false
             upsertNote = NoteDto("", Date(), "", "", false, false,0)
         }
-        Log.i("log_isUpsert",isUpsert.toString())
     }
 
 

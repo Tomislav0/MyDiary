@@ -14,10 +14,6 @@ public final class Constants {
     public static final String currUserStorageKey = "currUser";
     public static final String sharedPreferencesStorageKey = "sharedPreferencesStorageKey";
     public static final String lastActivityStorageKey = "lastActivityStorageKey";
-    public static final String fragmet_account = "fragmet_account";
-    public static final String fragmet_diary = "fragmet_diary";
-    public static final String fragmet_other = "fragmet_other";
-    public static final String fragmet_statistics = "fragmet_statistics";
     public static final String userEmailStorageKey = "userEmailStorageKey";
     public static final String userPasswordStorageKey = "userPasswordStorageKey";
     public static final Integer IMAGE_PICK_CODE = 1000;

@@ -55,7 +55,6 @@ class AccountFragment : Fragment(R.layout.fragment_account), View.OnClickListene
     override fun onClick(view: View) {
         when(view.id){
             R.id.logoutBtn ->{
-
                 auth.signOut()
 
                 val intent = Intent(activity, LoginActivity::class.java)

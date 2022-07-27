@@ -15,10 +15,6 @@ import javax.inject.Inject
 class DateHelper @Inject constructor() {
     private val sdf: SimpleDateFormat = SimpleDateFormat(DATE_FORMAT)
 
-    fun getCurrentTime(): String {
-        return sdf.format(Date())
-    }
-
     fun convertToDateFormat(date: String):Date{
         return sdf.parse(date)
     }

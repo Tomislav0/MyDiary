@@ -29,7 +29,7 @@ class NoteAdapter(
     var isSelected = false
 
     inner class NoteViewHolder(itemView:View) : RecyclerView.ViewHolder(itemView), View.OnClickListener, View.OnLongClickListener{
-            val date : TextView = itemView.findViewById(R.id.dateItemNoteTV)
+        val date : TextView = itemView.findViewById(R.id.dateItemNoteTV)
         val title : TextView = itemView.findViewById(R.id.titleItemNoteTV)
         val content : TextView = itemView.findViewById(R.id.contentItemNoteTV)
         val selectedView : View = itemView.findViewById(R.id.isSelectedView)
@@ -109,11 +109,9 @@ class NoteAdapter(
         holder.content.text = content
         holder.voiceRecordingIV.visibility = if(notes[position].hasVoiceRecording) View.VISIBLE else View.GONE
 
-
         if (notes[position].hasImage) {
             val imgFile = File(context.getExternalFilesDir(Environment.DIRECTORY_PICTURES), notes[position].id +".jpg")
             if (imgFile.exists()) {
-                Log.i("uso","vadi")
                 var myBitmap = BitmapFactory.decodeFile(imgFile.absolutePath)
                 holder.noteImg.visibility = View.VISIBLE
                 holder.noteImg.setImageBitmap(myBitmap)
@@ -122,9 +120,6 @@ class NoteAdapter(
             holder.noteImg.visibility = View.GONE
             holder.noteImg.setImageBitmap(null)
         }
-
-
-
     }
 
 

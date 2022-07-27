@@ -210,7 +210,6 @@ class DiaryFragment : Fragment(R.layout.fragment_diary), View.OnClickListener, N
                 }
                     fetchNotes()
             }
-
             }
         }
     }
@@ -232,9 +231,7 @@ class DiaryFragment : Fragment(R.layout.fragment_diary), View.OnClickListener, N
 
                 this.fetchedNotes.sortByDescending { it.date }
                 notesRV.adapter!!.notifyDataSetChanged()
-
                 progressBar.visibility = View.GONE
-                Log.i("notesi",fetchedNotes.toString())
             }else{
                 progressBar.visibility = View.GONE
             }
@@ -250,7 +247,6 @@ class DiaryFragment : Fragment(R.layout.fragment_diary), View.OnClickListener, N
         day.time = Date()
         var freeDay = dateHelper.getDateChartFormat(day.time)
         while(allDays.contains(freeDay)){
-            Log.i("uso","stvaro")
             day.set(Calendar.DAY_OF_MONTH,day.get(Calendar.DAY_OF_MONTH)-1)
             freeDay = dateHelper.getDateChartFormat(day.time)
         }
