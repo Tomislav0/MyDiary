@@ -9,7 +9,6 @@ import android.os.Bundle
 import com.example.mydiary.*
 import com.example.mydiary.Fragments.AccountFragment
 import com.example.mydiary.Fragments.DiaryFragment
-import com.example.mydiary.Fragments.OtherFragment
 import com.example.mydiary.Fragments.StatisticsFragment
 import com.example.mydiary.constants.Constants
 import com.example.mydiary.constants.Constants.currUserStorageKey
@@ -31,7 +30,6 @@ class HomeActivity : AppCompatActivity() {
     lateinit var diaryFragment: DiaryFragment
     lateinit var statisticsFragment: StatisticsFragment
     lateinit var accountFragment: AccountFragment
-    lateinit var otherFragment: OtherFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,7 +39,6 @@ class HomeActivity : AppCompatActivity() {
         diaryFragment = DiaryFragment()
         statisticsFragment = StatisticsFragment()
         accountFragment = AccountFragment()
-        otherFragment = OtherFragment()
 
         bottomNavBar = findViewById(R.id.bottomNavigationBar)
 
@@ -75,12 +72,6 @@ class HomeActivity : AppCompatActivity() {
                 R.id.accountIcon ->{
                     supportFragmentManager.beginTransaction().apply {
                         replace(R.id.frameLayout,accountFragment)
-                        commit()
-                    }
-                }
-                R.id.otherIcon ->{
-                    supportFragmentManager.beginTransaction().apply {
-                        replace(R.id.frameLayout,otherFragment)
                         commit()
                     }
                 }

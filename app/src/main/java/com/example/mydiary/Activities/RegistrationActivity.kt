@@ -10,7 +10,7 @@ import android.widget.*
 import com.example.mydiary.R
 import com.example.mydiary.constants.Constants.*
 import com.example.mydiary.helpers.DateHelper
-import com.example.mydiary.models.user
+import com.example.mydiary.models.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.FirebaseDatabase
@@ -158,7 +158,7 @@ class RegistrationActivity : AppCompatActivity(), View.OnClickListener{
         auth.createUserWithEmailAndPassword(email,passwordFirst)
             .addOnCompleteListener{
                 if(it.isSuccessful) {
-                    var user = user(name, email, gender, date, passwordFirst)
+                    var user = User(name, email, gender, date, passwordFirst)
                     database.getReference("Users")
                         .child(auth.currentUser!!.uid)
                         .setValue(user)

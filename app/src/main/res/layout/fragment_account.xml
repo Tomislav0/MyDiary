@@ -8,17 +8,120 @@
 
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/logoutBtn"
+        android:id="@+id/accountSubmitBtn"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginHorizontal="60dp"
+        android:layout_marginTop="30dp"
         android:background="@drawable/custom_background"
         android:fontFamily="@font/lato"
-        android:text="@string/logout"
+        android:text="@string/save"
         android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nameAccountET" />
+
+    <TextView
+        android:id="@+id/titleAccountTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="36dp"
+        android:animateLayoutChanges="true"
+        android:fontFamily="@font/lato_light"
+        android:text="@string/account"
+        android:textSize="55sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/logoutBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginTop="16dp"
+        android:background="?android:selectableItemBackground"
+        android:drawableStart="@drawable/ic_baseline_logout_24"
+        android:fontFamily="@font/lato_light"
+        android:text="@string/logout"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/emailLabelTV"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleAccountTV"
+        app:layout_constraintVertical_bias="0.04000002"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+
+    <TextView
+        android:id="@+id/emailLabelTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginBottom="10dp"
+        android:animateLayoutChanges="true"
+        android:fontFamily="@font/lato_light"
+        android:text="@string/email"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/emailAccountET"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logoutBtn" />
+
+
+    <EditText
+        android:id="@+id/emailAccountET"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginHorizontal="60dp"
+        android:background="@drawable/custom_input"
+        android:clickable="false"
+        android:cursorVisible="false"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:fontFamily="@font/lato_light"
+        android:hint="@string/email"
+        android:inputType="none"
+        android:paddingStart="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/nameLabelTV"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emailLabelTV" />
+
+    <TextView
+        android:id="@+id/nameLabelTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        android:animateLayoutChanges="true"
+        android:fontFamily="@font/lato_light"
+        android:text="@string/name"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/nameAccountET"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emailAccountET" />
+
+    <EditText
+        android:id="@+id/nameAccountET"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginHorizontal="60dp"
+        android:background="@drawable/custom_input"
+        android:fontFamily="@font/lato_light"
+        android:hint="@string/name"
+        android:inputType="textPersonName"
+        android:paddingStart="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/accountSubmitBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nameLabelTV" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,7 +7,6 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.mydiary.Fragments.AccountFragment
 import com.example.mydiary.Fragments.DiaryFragment
-import com.example.mydiary.Fragments.OtherFragment
 import com.example.mydiary.Fragments.StatisticsFragment
 import com.example.mydiary.R
 import com.example.mydiary.constants.Constants

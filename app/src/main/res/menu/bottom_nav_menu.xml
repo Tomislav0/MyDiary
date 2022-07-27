@@ -9,7 +9,4 @@
     <item android:id="@+id/accountIcon"
         android:title="@string/account"
         android:icon="@drawable/ic_account"/>
-    <item android:id="@+id/otherIcon"
-        android:title="@string/other"
-        android:icon="@drawable/ic_other"/>
 </menu>

@@ -66,5 +66,8 @@
     <string name="deleteImage">Do you want to delete image?</string>
     <string name="deleteVoiceMessage">Do you want to delete voice message?</string>
     <string name="noDataStatistic">Please enter your first note to see statistics.</string>
+    <string name="all">All</string>
+    <string name="lastyear">Last year</string>
+    <string name="lastmonth">Last Month</string>
 
 </resources>
