@@ -27,7 +27,6 @@ class NoteAdapter(
     val context : Context,
 ) : RecyclerView.Adapter<NoteAdapter.NoteViewHolder>() {
     var isSelected = false
-
     inner class NoteViewHolder(itemView:View) : RecyclerView.ViewHolder(itemView), View.OnClickListener, View.OnLongClickListener{
         val date : TextView = itemView.findViewById(R.id.dateItemNoteTV)
         val title : TextView = itemView.findViewById(R.id.titleItemNoteTV)
@@ -70,21 +69,17 @@ class NoteAdapter(
             return true;
         }
     }
-
     interface  OnItemClickListener {
         fun onItemClick(position: Int)
         fun onItemLongClick(position: Int)
     }
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NoteViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_note, parent, false)
         return NoteViewHolder(itemView)
     }
-
     override fun getItemCount(): Int {
         return notes.size
     }
-
     override fun onBindViewHolder(holder: NoteViewHolder, position: Int) {
 
         if (!selectedNotes.contains(notes[position])) {
@@ -121,6 +116,4 @@ class NoteAdapter(
             holder.noteImg.setImageBitmap(null)
         }
     }
-
-
 }

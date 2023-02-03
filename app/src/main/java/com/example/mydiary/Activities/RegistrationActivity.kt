@@ -110,8 +110,6 @@ class RegistrationActivity : AppCompatActivity(), View.OnClickListener{
         var passwordFirst = passwordET.text.toString().trim()
         var passwordSecond = passwordRepeatET.text.toString().trim()
 
-
-
         if(name.isEmpty()){
             nameET.setError("Name"+ isRequiredErrorMessage)
             nameET.requestFocus()
@@ -164,23 +162,22 @@ class RegistrationActivity : AppCompatActivity(), View.OnClickListener{
                             if (it.isSuccessful) {
                                 var currUser = auth.currentUser
                                 currUser!!.sendEmailVerification()
-                                Toast.makeText(this, "Successfully registered!\nPlease check your email to verify account! (check spam partition)", Toast.LENGTH_LONG)
+                                Toast.makeText(this, registerSuccessfulMessage, Toast.LENGTH_LONG)
                                    .show()
                                 val intent = Intent(this, LoginActivity::class.java)
                                 startActivity(intent)
                             } else {
-                                Toast.makeText(this, "Failed to register!", Toast.LENGTH_SHORT)
+                                Toast.makeText(this, registerErrorMessage, Toast.LENGTH_SHORT)
                                     .show()
                             }
                             progressBar.visibility = View.INVISIBLE
                         }
 
                 }else{
-                    Toast.makeText(this, "Failed to register!", Toast.LENGTH_SHORT)
+                    Toast.makeText(this, registerErrorMessage, Toast.LENGTH_SHORT)
                         .show()
                     progressBar.visibility = View.INVISIBLE
                 }
-
             }
     }
 

@@ -185,9 +185,6 @@ class NoteUpsertActivity : AppCompatActivity(), View.OnClickListener, View.OnLon
                         pickImageFromGallery()
                     }
                 }
-                else{
-
-                }
             }
             R.id.imageSmallIV->{
                imageBigIV.visibility = View.VISIBLE
@@ -232,13 +229,6 @@ class NoteUpsertActivity : AppCompatActivity(), View.OnClickListener, View.OnLon
         }
     }
 
-    private fun stopRecording() {
-        mediaRecorder.stop()
-        mediaRecorder.reset()
-
-        Toast.makeText(this,"Recording stopped",Toast.LENGTH_SHORT).show()
-    }
-
     private fun startRecording() {
         try {
             mediaRecorder.setAudioSource(MediaRecorder.AudioSource.MIC)
@@ -253,6 +243,13 @@ class NoteUpsertActivity : AppCompatActivity(), View.OnClickListener, View.OnLon
         }catch(e:Exception){
             e.printStackTrace()
         }
+    }
+
+    private fun stopRecording() {
+        mediaRecorder.stop()
+        mediaRecorder.reset()
+
+        Toast.makeText(this,"Recording stopped",Toast.LENGTH_SHORT).show()
     }
 
     private fun getRecordingFilePath():String{

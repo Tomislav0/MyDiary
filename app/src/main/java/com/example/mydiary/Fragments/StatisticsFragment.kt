@@ -26,7 +26,6 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.ktx.Firebase
 import com.google.gson.Gson
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.fragment_statistics.*
 import java.security.acl.Group
 import java.sql.Date
 import java.sql.Timestamp
@@ -224,36 +223,6 @@ class StatisticsFragment : Fragment(R.layout.fragment_statistics), View.OnClickL
                 }
             } else {
                 Toast.makeText(view.context, "Something went wrong.", Toast.LENGTH_SHORT).show()
-            }
-        }
-    }
-
-    fun onRadioButtonClicked(view: View) {
-        if (view is RadioButton) {
-            val checked = view.isChecked
-
-            when (view.getId()) {
-                R.id.radio_all ->
-                    if (checked) {
-                        datefilter = null
-                        fetchData(view)
-                    }
-                R.id.radio_year ->
-                    if (checked) {
-                        val cal = Calendar.getInstance()
-                        val year = cal.get(Calendar.YEAR)
-                        cal.set(Calendar.YEAR, year-1)
-                        datefilter = cal.time as Date
-                        fetchData(view)
-                    }
-                R.id.radio_month ->
-                    if (checked) {
-                        val cal = Calendar.getInstance()
-                        val month = cal.get(Calendar.MONTH)
-                        cal.set(Calendar.MONTH, month-1)
-                        datefilter = cal.time as Date
-                        fetchData(view)
-                    }
             }
         }
     }

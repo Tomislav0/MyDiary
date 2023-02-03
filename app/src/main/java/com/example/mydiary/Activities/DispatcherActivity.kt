@@ -31,8 +31,6 @@ class DispatcherActivity : AppCompatActivity() {
             MODE_PRIVATE
         )
 
-
-
         if(auth.currentUser == null){
             var userEmail = prefs.getString(userEmailStorageKey,null)
             var userPassword = prefs.getString(userEmailStorageKey,null)

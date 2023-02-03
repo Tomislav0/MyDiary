@@ -1,51 +1,30 @@
 package com.example.mydiary.Fragments
 
-import android.annotation.SuppressLint
-import android.content.Context
-import android.content.ContextWrapper
 import android.content.Intent
-import android.content.pm.PackageManager
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
-import android.graphics.drawable.Icon
-import android.media.Image
-import android.os.Build
 import android.os.Bundle
-import android.os.Environment
-import android.util.Log
-import android.view.KeyEvent
-import androidx.fragment.app.Fragment
 import android.view.View
-import android.view.ViewTreeObserver
-import android.view.inputmethod.InputMethodManager
 import android.widget.*
 import androidx.core.widget.addTextChangedListener
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mydiary.Activities.NoteUpsertActivity
 import com.example.mydiary.R
-import com.example.mydiary.constants.Constants
 import com.example.mydiary.constants.Constants.BASE_URL
 import com.example.mydiary.helpers.DateHelper
 import com.example.mydiary.helpers.FileHelper
 import com.example.mydiary.helpers.NoteAdapter
 import com.example.mydiary.models.NoteBM
 import com.example.mydiary.models.NoteDto
-import com.google.android.material.internal.ViewUtils
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.ktx.Firebase
 import com.google.gson.Gson
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.fragment_diary.*
-import kotlinx.coroutines.selects.select
-import java.io.File
-import java.security.acl.Group
 import java.text.SimpleDateFormat
 import java.util.*
 import javax.inject.Inject
-import kotlin.collections.ArrayList
 import kotlin.properties.Delegates
 
 @AndroidEntryPoint
@@ -98,6 +77,7 @@ class DiaryFragment : Fragment(R.layout.fragment_diary), View.OnClickListener, N
         selectionGroup = view.findViewById(R.id.selectionGroup)
         selectionCounterTV = view.findViewById(R.id.selectedCounterTV)
 
+
         selectionGroup.visibility = View.GONE
 
         newNoteBtn.setOnClickListener(this)
@@ -146,6 +126,7 @@ class DiaryFragment : Fragment(R.layout.fragment_diary), View.OnClickListener, N
     }
 
     override fun onClick(view: View?) {
+
         when(view?.id){
             R.id.addNoteBtn ->{
                 navigateToNewNoteActivity()
@@ -185,7 +166,7 @@ class DiaryFragment : Fragment(R.layout.fragment_diary), View.OnClickListener, N
                     adapter.notifyDataSetChanged()
                 }
 
-                selectedCounterTV.setText(adapter.selectedNotes.size.toString())
+                selectionCounterTV.setText(adapter.selectedNotes.size.toString())
             }
             R.id.deleteSelectionBtn->{
                 for (selectedNote in adapter.selectedNotes) {
@@ -224,7 +205,8 @@ class DiaryFragment : Fragment(R.layout.fragment_diary), View.OnClickListener, N
                     val toJson = gson.toJson(data.value)
                     val note = gson.fromJson(toJson, NoteBM::class.java)
                     val parsedDate = dateHelper.convertToDateFormat(note.date)
-                    this.fetchedNotes.add(NoteDto(note.id,parsedDate,note.title,note.content,note.hasImage, note.hasVoiceRecording, note.moodRate))
+                    this.fetchedNotes.add(NoteDto(note.id,parsedDate,note.title,note.content,note.hasImage,
+                        note.hasVoiceRecording, note.moodRate))
                     allDays.add(dateHelper.getDateChartFormat(parsedDate))
                     disabledDays.add(note.date)
                 }
@@ -236,8 +218,6 @@ class DiaryFragment : Fragment(R.layout.fragment_diary), View.OnClickListener, N
                 progressBar.visibility = View.GONE
             }
         }
-
-
     }
 
     private fun navigateToNewNoteActivity() {
@@ -265,7 +245,7 @@ class DiaryFragment : Fragment(R.layout.fragment_diary), View.OnClickListener, N
     }
 
     override fun onItemLongClick(position: Int) {
-        selectedCounterTV.setText(adapter.selectedNotes.size.toString())
+        selectionCounterTV.setText(adapter.selectedNotes.size.toString())
         if(adapter.isSelected){
             selectionGroup.visibility=View.VISIBLE
             searchBtn.visibility = View.GONE

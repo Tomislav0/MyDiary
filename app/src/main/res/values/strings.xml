@@ -69,5 +69,6 @@
     <string name="all">All</string>
     <string name="lastyear">Last year</string>
     <string name="lastmonth">Last Month</string>
+    <string name="cancel">Cancel</string>
 
 </resources>

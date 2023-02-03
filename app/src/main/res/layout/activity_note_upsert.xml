@@ -17,7 +17,6 @@
         android:background="@drawable/back_button_border"
         android:maxWidth="50dp"
         android:maxHeight="50dp"
-        app:layout_constraintEnd_toStartOf="@+id/notesNumberTV"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="spread_inside"
         app:layout_constraintStart_toStartOf="parent"
@@ -56,7 +55,6 @@
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/notesNumberTV"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView

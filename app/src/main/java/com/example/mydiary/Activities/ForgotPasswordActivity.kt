@@ -64,7 +64,6 @@ class ForgotPasswordActivity : AppCompatActivity(), View.OnClickListener {
                 emailET.text = null
                 Toast.makeText(this,"Invalid email. Please check your credentials.",Toast.LENGTH_LONG).show()
             }
-
         }
     }
 

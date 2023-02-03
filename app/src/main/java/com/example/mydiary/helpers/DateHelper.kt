@@ -14,30 +14,24 @@ import javax.inject.Inject
 
 class DateHelper @Inject constructor() {
     private val sdf: SimpleDateFormat = SimpleDateFormat(DATE_FORMAT)
-
     fun convertToDateFormat(date: String):Date{
         return sdf.parse(date)
     }
-
     fun convertToStringFormat(date:Date):String{
         return sdf.format(date)
     }
-
     fun getDateDay(date:Date): Int {
         val sdfDay = SimpleDateFormat("dd")
         return sdfDay.format(date).toInt()
     }
-
     fun getDateMonth(date:Date): Int {
         val sdfMonth = SimpleDateFormat("MM")
         return sdfMonth.format(date).toInt()
     }
-
     fun getDateYear(date:Date): Int {
         val sdfYear = SimpleDateFormat("yyyy")
         return sdfYear.format(date).toInt()
     }
-
     fun getDateChartFormat(date:Date): String {
         val sdf = SimpleDateFormat("dd.MM.yyyy.")
         return sdf.format(date).toString()

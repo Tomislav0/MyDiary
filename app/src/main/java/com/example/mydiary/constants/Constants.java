@@ -7,6 +7,8 @@ public final class Constants {
     public static final String isInvalidErrorMessage = " field is invalid.";
     public static final String passwordErrorMessage = "Please provide password with min 6 characters";
     public static final String passwordsNotMatchErrorMessage = "Passwords do not match.";
+    public static final String registerErrorMessage = "Failed to register!";
+    public static final String registerSuccessfulMessage = "Successfully registered!\nPlease check your email to verify account! (check spam partition)";
     public static final String noteSavedMessage = "Note successfully saved!";
     public static final String somethingWentWrong = "Something went wrong.";
     public static final String BASE_URL = "https://mydiary-108f5-default-rtdb.europe-west1.firebasedatabase.app";

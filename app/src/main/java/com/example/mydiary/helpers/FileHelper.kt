@@ -11,7 +11,7 @@ import java.io.InputStream
 import javax.inject.Inject
 
 class FileHelper @Inject constructor(@ApplicationContext val context: Context) {
-     private fun deleteFileFromExternalStorage(filename: String,extension: String,environment: String):Boolean{
+    private fun deleteFileFromExternalStorage(filename: String,extension: String,environment: String):Boolean{
         return try {
             val file = File(context.getExternalFilesDir(environment),filename+extension)
             file.delete()
@@ -32,7 +32,6 @@ class FileHelper @Inject constructor(@ApplicationContext val context: Context) {
             e.printStackTrace();
         }
     }
-
     fun getBytes(inputStream: InputStream?): ByteArray? {
         val byteBuffer = ByteArrayOutputStream()
         val bufferSize = 1024
@@ -43,14 +42,9 @@ class FileHelper @Inject constructor(@ApplicationContext val context: Context) {
         }
         return byteBuffer.toByteArray()
     }
-
     fun writeImageToFile(fileName : String,data:ByteArray?){
         writeToFile(fileName,data, ".jpg",Environment.DIRECTORY_PICTURES)
     }
-    fun writeVoiceRecordingToFile(fileName : String,data:ByteArray?){
-        writeToFile(fileName,data, ".mp3",Environment.DIRECTORY_MUSIC)
-    }
-
     fun deleteImageFile(filename: String):Boolean{
         return deleteFileFromExternalStorage(filename,".jpg",Environment.DIRECTORY_PICTURES)
     }
